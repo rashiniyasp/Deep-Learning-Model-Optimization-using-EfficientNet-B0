@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HTIC IIT Madras: Production-grade Deep Learning Model Optimization & Edge CPU Deployment for Real-Time Fetal Ultrasound Plane Classification using EfficientNet-B0.">
+  <meta name="author" content="Rashi Niyas P">
+  <title>HTIC IIT Madras | EfficientNet-B0 Ultrasound Optimization & Edge Deployment</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%22><text y=%2222%22 font-size=%2220%22>🩺</text></svg>">
+</head>
+<body>
+
+  <!-- ============================================================================
+       Header & Navigation Bar
+       ============================================================================ -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <div class="brand-icon">H</div>
+        <div class="brand-text">
+          <h1>HTIC · IIT Madras</h1>
+          <span>MODEL OPTIMIZATION & DEPLOYMENT</span>
+        </div>
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#overview" class="active">Overview</a></li>
+          <li><a href="#pipeline">Architecture Pipeline</a></li>
+          <li><a href="#benchmarks">CPU Benchmarks</a></li>
+          <li><a href="#results">Empirical Gallery</a></li>
+          <li><a href="#hardware">Environment</a></li>
+        </ul>
+      </nav>
+
+      <a href="https://github.com/rashiniyasp/Deep-Learning-Model-Optimization-using-EfficientNet-B0" target="_blank" class="btn-github">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        <span>GitHub Repository</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================================================================
+       Hero Section
+       ============================================================================ -->
+  <section class="hero" id="overview">
+    <div class="container">
+      <div class="badge-wrapper">
+        <span class="badge-pill">HTIC & IGRS · IIT MADRAS</span>
+        <span class="badge-pill emerald">EDGE CPU REAL-TIME DEPLOYMENT</span>
+      </div>
+
+      <h1>
+        Real-Time Fetal Ultrasound Plane Classification & <span class="gradient-text">Edge CPU Optimization</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        A clinical-grade deep learning pipeline optimizing <strong>EfficientNet-B0</strong> for standard laptop hardware without a dedicated GPU. Evaluated on <strong>12,400 clinical ultrasound scans</strong> from Zenodo 3904280, delivering <strong>94.67% test accuracy</strong> at <strong>47.1 FPS</strong> with rigorous post-hoc uncertainty calibration and Grad-CAM interpretability.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#benchmarks" class="btn-primary">
+          <span>Explore CPU Benchmarks</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#results" class="btn-secondary">
+          <span>View Empirical Gallery (17 Plots)</span>
+        </a>
+      </div>
+
+      <!-- KPI Metrics Ribbon -->
+      <div class="metrics-ribbon">
+        <div class="metric-card" style="--card-accent: var(--accent-emerald);">
+          <div class="metric-header">
+            <span class="metric-title">Test Accuracy</span>
+            <span class="metric-icon">🎯</span>
+          </div>
+          <div class="metric-value">94.67%</div>
+          <div class="metric-sub"><strong>4,990 / 5,271</strong> test images (F1: 0.9406)</div>
+        </div>
+
+        <div class="metric-card" style="--card-accent: var(--accent-cyan);">
+          <div class="metric-header">
+            <span class="metric-title">CPU Inference Latency</span>
+            <span class="metric-icon">⚡</span>
+          </div>
+          <div class="metric-value">21.22 ms</div>
+          <div class="metric-sub"><strong>47.13 FPS</strong> on AMD Ryzen 7 7730U</div>
+        </div>
+
+        <div class="metric-card" style="--card-accent: var(--accent-indigo);">
+          <div class="metric-header">
+            <span class="metric-title">Model Compression</span>
+            <span class="metric-icon">📦</span>
+          </div>
+          <div class="metric-value">3.0×</div>
+          <div class="metric-sub">46.40 MB → <strong>15.30 MB</strong> (ONNX Graph)</div>
+        </div>
+
+        <div class="metric-card" style="--card-accent: var(--accent-purple);">
+          <div class="metric-header">
+            <span class="metric-title">Uncertainty Calibration</span>
+            <span class="metric-icon">🩺</span>
+          </div>
+          <div class="metric-value">28.8%</div>
+          <div class="metric-sub">ECE reduced from 13.27% → <strong>9.46%</strong></div>
+        </div>
+
+        <div class="metric-card" style="--card-accent: var(--accent-amber);">
+          <div class="metric-header">
+            <span class="metric-title">Quantization Drop</span>
+            <span class="metric-icon">🛡️</span>
+          </div>
+          <div class="metric-value">0.00%</div>
+          <div class="metric-sub">Full <strong>94.67% accuracy</strong> retained</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       Step-by-Step Architecture Pipeline
+       ============================================================================ -->
+  <section class="section" id="pipeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Step-by-Step Methodology</span>
+        <h2 class="section-title">The Optimization & Deployment Engineering Pipeline</h2>
+        <p class="section-desc">
+          From clinical dataset curation and compound-scaled convolutional representation learning to edge quantization, reliability calibration, and visual explainability.
+        </p>
+      </div>
+
+      <div class="pipeline-grid">
+        <!-- Step 1 -->
+        <div class="pipeline-card">
+          <div class="card-step-badge">01</div>
+          <h3>Clinical Dataset & Problem Formulation</h3>
+          <p>
+            Utilizes <strong>12,400 clinical ultrasound scans</strong> from Zenodo 3904280 across 6 anatomical classes: Fetal Brain (3,092), Fetal Abdomen (711), Fetal Thorax (386), Fetal Femur (1,047), Maternal Cervix (1,626), and Other (5,538). Evaluated on an isolated test split of 5,271 held-out scans.
+          </p>
+          <div class="tech-tag-list">
+            <span class="tech-tag">Zenodo 3904280</span>
+            <span class="tech-tag">Stratified Split</span>
+            <span class="tech-tag">Class Imbalance</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="pipeline-card">
+          <div class="card-step-badge">02</div>
+          <h3>EfficientNet-B0 Compound Scaling</h3>
+          <p>
+            Employs compound scaling balancing network depth, width, and resolution ($d=1.2, w=1.1, r=1.15$). Total footprint of <strong>4.02M parameters</strong> and <strong>0.39 GFLOPs</strong>, utilizing Mobile Inverted Bottleneck Convolutions (MBConv) with Squeeze-and-Excitation (SE) channel attention.
+          </p>
+          <div class="tech-tag-list">
+            <span class="tech-tag">Compound Scaling</span>
+            <span class="tech-tag">MBConv Blocks</span>
+            <span class="tech-tag">Squeeze-and-Excitation</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="pipeline-card">
+          <div class="card-step-badge">03</div>
+          <h3>Optimization Dynamics & Convergence</h3>
+          <p>
+            Fine-tuned from ImageNet-21k pre-trained weights using <strong>AdamW</strong> optimizer (weight decay $1\times 10^{-2}$), Cosine Annealing learning rate schedule ($1\times 10^{-4} \to 1\times 10^{-6}$), and <strong>Label Smoothing (0.1)</strong> to prevent clinical overconfidence. Early stopping halted training at Epoch 24.
+          </p>
+          <div class="tech-tag-list">
+            <span class="tech-tag">AdamW Optimizer</span>
+            <span class="tech-tag">Cosine Annealing</span>
+            <span class="tech-tag">Label Smoothing 0.1</span>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="pipeline-card">
+          <div class="card-step-badge">04</div>
+          <h3>Edge CPU Quantization & ONNX Export</h3>
+          <p>
+            Benchmarked across 4 runtime configurations on an AMD Ryzen 7 7730U laptop CPU. Compared PyTorch Dynamic INT8 quantization against ONNX Runtime graph optimizations (constant folding, node fusing). ONNX FP32 achieved <strong>21.22 ms latency</strong> (47.1 FPS) with 3.0× model size compression.
+          </p>
+          <div class="tech-tag-list">
+            <span class="tech-tag">ONNX Runtime</span>
+            <span class="tech-tag">Dynamic INT8</span>
+            <span class="tech-tag">Graph Optimization</span>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="pipeline-card">
+          <div class="card-step-badge">05</div>
+          <h3>Post-Hoc Uncertainty Calibration</h3>
+          <p>
+            Implemented Temperature Scaling (Guo et al., ICML 2017) using L-BFGS optimization with positive reparameterization $T = \exp(s) > 0$. Optimal temperature $T^* = 0.8765$ reduced Expected Calibration Error (ECE) from <strong>13.27% to 9.46%</strong> (28.8% relative reduction), preserving top-1 predictions.
+          </p>
+          <div class="tech-tag-list">
+            <span class="tech-tag">Temperature Scaling</span>
+            <span class="tech-tag">ECE Reduction</span>
+            <span class="tech-tag">L-BFGS Optimization</span>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="pipeline-card">
+          <div class="card-step-badge">06</div>
+          <h3>Interpretability & Manifold Projections</h3>
+          <p>
+            Extracted penultimate 1,280-dimensional feature representations for all 5,271 test images and mapped them via <strong>t-SNE and UMAP</strong> to verify anatomical plane separability. Generated native <strong>Grad-CAM saliency heatmaps</strong> targeting the final MBConv block to confirm focus on acoustic landmarks.
+          </p>
+          <div class="tech-tag-list">
+            <span class="tech-tag">t-SNE & UMAP</span>
+            <span class="tech-tag">Grad-CAM Heatmaps</span>
+            <span class="tech-tag">Acoustic Landmarks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       Interactive CPU Benchmark Comparison Table
+       ============================================================================ -->
+  <section class="section" id="benchmarks">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Empirical Edge Benchmarks</span>
+        <h2 class="section-title">Laptop CPU Deployment Performance Breakdown</h2>
+        <p class="section-desc">
+          Evaluated under standardized conditions on an AMD Ryzen 7 7730U laptop CPU (8 Cores, 16 Threads @ 2.0 GHz) without GPU acceleration. 50 timed iterations per deployment candidate.
+        </p>
+      </div>
+
+      <div class="table-container">
+        <table class="benchmark-table">
+          <thead>
+            <tr>
+              <th>Deployment Candidate</th>
+              <th>Mean Latency</th>
+              <th>p50 Latency</th>
+              <th>p95 Latency</th>
+              <th>Throughput</th>
+              <th>Test Accuracy</th>
+              <th>Model Footprint</th>
+              <th>Compression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="model-name">
+                  <span>PyTorch FP32</span>
+                  <span class="badge-tag blue">Baseline</span>
+                </div>
+              </td>
+              <td>21.34 ms</td>
+              <td>21.62 ms</td>
+              <td>22.41 ms</td>
+              <td>46.87 FPS</td>
+              <td><strong>94.67%</strong></td>
+              <td>46.40 MB</td>
+              <td>1.0× (Baseline)</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="model-name">
+                  <span>PyTorch INT8 (Dynamic)</span>
+                  <span class="badge-tag emerald">Quantized</span>
+                </div>
+              </td>
+              <td>22.15 ms</td>
+              <td>22.21 ms</td>
+              <td>23.48 ms</td>
+              <td>45.15 FPS</td>
+              <td><strong>94.67%</strong></td>
+              <td><strong>15.58 MB</strong></td>
+              <td><strong>3.0× Smaller</strong></td>
+            </tr>
+            <tr class="highlight-row">
+              <td>
+                <div class="model-name">
+                  <span>ONNX FP32 (Graph Fused)</span>
+                  <span class="badge-tag cyan">⭐ Recommended</span>
+                </div>
+              </td>
+              <td><strong>21.22 ms</strong></td>
+              <td><strong>22.05 ms</strong></td>
+              <td><strong>24.33 ms</strong></td>
+              <td><strong>47.13 FPS</strong></td>
+              <td><strong>94.67%</strong></td>
+              <td><strong>15.30 MB</strong></td>
+              <td><strong>3.0× Smaller</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="model-name">
+                  <span>ONNX Dynamic INT8</span>
+                  <span class="badge-tag amber">Deep Quant</span>
+                </div>
+              </td>
+              <td>135.84 ms</td>
+              <td>137.17 ms</td>
+              <td>151.59 ms</td>
+              <td>7.36 FPS</td>
+              <td>29.67%</td>
+              <td><strong>4.14 MB</strong></td>
+              <td><strong>11.2× Smaller</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-callout">
+        <strong>💡 Medical Edge Deployment Insight:</strong> ONNX FP32 provides the premier Pareto-optimal operating point on modern laptop CPUs, achieving <strong>21.22 ms latency (47.13 FPS)</strong> and <strong>15.30 MB disk footprint (3.0× compression)</strong> with <strong>zero accuracy degradation</strong>. PyTorch Dynamic INT8 delivers identical 3.0× compression and 100% accuracy retention, providing a pure PyTorch deployment path without ONNX dependency.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       Empirical Results & Interactive Plot Gallery
+       ============================================================================ -->
+  <section class="section" id="results">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Results Explorer</span>
+        <h2 class="section-title">Empirical Figures & Clinical Diagnostic Visualizations</h2>
+        <p class="section-desc">
+          Click on any figure below to inspect high-resolution analytical plots, latent manifold projections, confidence calibration curves, and Grad-CAM ultrasound heatmaps.
+        </p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="gallery-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Figures (17)</button>
+        <button class="filter-btn" data-filter="deployment">Deployment & Pareto</button>
+        <button class="filter-btn" data-filter="calibration">Uncertainty Calibration</button>
+        <button class="filter-btn" data-filter="manifold">Latent Manifold Projections</button>
+        <button class="filter-btn" data-filter="explainability">Grad-CAM Explainability</button>
+        <button class="filter-btn" data-filter="training">Training & Confusion</button>
+        <button class="filter-btn" data-filter="eda">Dataset & EDA</button>
+      </div>
+
+      <!-- Dynamic Grid Container -->
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       Hardware & Reproducibility Specifications
+       ============================================================================ -->
+  <section class="section" id="hardware">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Hardware & Reproducibility</span>
+        <h2 class="section-title">Experimental Environment & Execution Guide</h2>
+        <p class="section-desc">
+          Exact hardware specifications and automated one-click commands to reproduce all training, optimization, and post-training analysis scripts.
+        </p>
+      </div>
+
+      <div class="pipeline-grid">
+        <div class="pipeline-card">
+          <h3>Deployment Hardware Benchmark</h3>
+          <p>
+            Benchmarked exclusively on a consumer laptop CPU without dedicated GPU acceleration, mirroring resource-constrained point-of-care clinical ultrasound cart settings:
+          </p>
+          <div class="tech-tag-list">
+            <span class="tech-tag">CPU: AMD Ryzen 7 7730U</span>
+            <span class="tech-tag">8 Cores / 16 Threads @ 2.0 GHz</span>
+            <span class="tech-tag">RAM: 16 GB DDR4</span>
+            <span class="tech-tag">OS: Windows 11 64-bit</span>
+          </div>
+        </div>
+
+        <div class="pipeline-card">
+          <h3>Software Stack & Frameworks</h3>
+          <p>
+            Built using modern, stable deep learning libraries with CPU graph optimization backends:
+          </p>
+          <div class="tech-tag-list">
+            <span class="tech-tag">Python 3.11.9</span>
+            <span class="tech-tag">PyTorch 2.5.1+cu121</span>
+            <span class="tech-tag">ONNX Runtime 1.20.1</span>
+            <span class="tech-tag">Torchvision 0.20.1</span>
+            <span class="tech-tag">Scikit-Learn 1.5.2</span>
+            <span class="tech-tag">UMAP-Learn 0.5.6</span>
+          </div>
+        </div>
+
+        <div class="pipeline-card">
+          <h3>One-Click Reproducibility</h3>
+          <p>
+            Clone the repository and run the post-training analysis or weight downloader with a single terminal command:
+          </p>
+          <div class="tech-tag-list" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+            <span class="tech-tag" style="width: 100%;">python src/download_weights.py</span>
+            <span class="tech-tag" style="width: 100%;">python src/run_efficientnet_analysis.py</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       Lightbox Modal
+       ============================================================================ -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+      <div class="lightbox-header">
+        <h3 id="lightboxTitle">Plot Title</h3>
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+      </div>
+      <div class="lightbox-body">
+        <img id="lightboxImg" src="" alt="">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================================
+       Footer
+       ============================================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <h4>Healthcare Technology Innovation Centre (HTIC)</h4>
+          <p>
+            Indian Institute of Technology Madras (IITM). Assignment: Deep Learning Model Optimization & Deployment for Real-Time Fetal Ultrasound Plane Classification.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h5>Documentation</h5>
+          <ul>
+            <li><a href="https://github.com/rashiniyasp/Deep-Learning-Model-Optimization-using-EfficientNet-B0/blob/main/README.md" target="_blank">Project README</a></li>
+            <li><a href="https://github.com/rashiniyasp/Deep-Learning-Model-Optimization-using-EfficientNet-B0/blob/main/ASSIGNMENT_PLAN.md" target="_blank">Assignment Strategy Plan</a></li>
+            <li><a href="https://github.com/rashiniyasp/Deep-Learning-Model-Optimization-using-EfficientNet-B0/blob/main/ASSIGNMENT_TECHNICAL_NOTES.md" target="_blank">Technical Notes</a></li>
+            <li><a href="https://github.com/rashiniyasp/Deep-Learning-Model-Optimization-using-EfficientNet-B0/blob/main/EXPERIMENT_GUIDE.md" target="_blank">Experiment Handbook</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h5>External Links</h5>
+          <ul>
+            <li><a href="https://github.com/rashiniyasp/Deep-Learning-Model-Optimization-using-EfficientNet-B0" target="_blank">GitHub Repository</a></li>
+            <li><a href="https://zenodo.org/records/3904280" target="_blank">Zenodo 3904280 Dataset</a></li>
+            <li><a href="https://htic.iitm.ac.in" target="_blank">HTIC IIT Madras</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Developed by Rashi Niyas P · HTIC IIT Madras DL Optimization</div>
+        <div>Built for Edge CPU Deployment · 2026</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
