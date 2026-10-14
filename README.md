@@ -41,10 +41,6 @@ python src/run_efficientnet_analysis.py
   ```bash
   python src/run_full_pipeline.py --skip_train
   ```
-- **Fast Analysis Run (Skip t-SNE if already generated)**:
-  ```bash
-  python src/run_efficientnet_analysis.py --skip_tsne
-  ```
 
 ---
 
