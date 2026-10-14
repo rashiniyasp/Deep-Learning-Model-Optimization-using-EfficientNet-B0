@@ -1,0 +1,12 @@
+{
+  "model_name": "efficientnet_b0",
+  "run_name": "efficientnet_b0_adamw",
+  "optimal_temperature": 0.8765278458595276,
+  "nll_before": 0.34538042545318604,
+  "nll_after": 0.3069005608558655,
+  "ece_before": 0.13273776020736,
+  "ece_after": 0.09455334624679748,
+  "mce_before": 0.29675362507502234,
+  "mce_after": 0.38279449939727783,
+  "ece_relative_reduction_pct": 28.766805994700885
+}

@@ -1,0 +1,36 @@
+{
+  "accuracy": 0.9466894327452097,
+  "macro_f1": 0.940612154677071,
+  "weighted_f1": 0.9466531150559594,
+  "ece": 0.134390983290248,
+  "pr_auc_per_class": {
+    "Fetal abdomen": 0.9288291048210344,
+    "Fetal brain": 0.9904658980615205,
+    "Fetal femur": 0.9216620515973061,
+    "Fetal thorax": 0.9496808473566091,
+    "Maternal cervix": 0.9963563250676962,
+    "Other": 0.9291099859198519
+  },
+  "macro_pr_auc": 0.9526840354706697,
+  "per_class_accuracy": {
+    "Fetal abdomen": 0.9748603351955307,
+    "Fetal brain": 0.9938858695652174,
+    "Fetal femur": 0.9122137404580153,
+    "Fetal thorax": 0.9515151515151515,
+    "Maternal cervix": 0.9984496124031008,
+    "Other": 0.8858560794044665
+  },
+  "per_operator_accuracy": {
+    "Op. 1": 0.9347826086956522,
+    "Op. 2": 0.9408033826638478,
+    "Op. 3": 0.9636986301369863,
+    "Other": 0.9422400803616273
+  },
+  "per_machine_accuracy": {
+    "Aloka": 0.9694876223373633,
+    "Other": 0.8596491228070176,
+    "Voluson E6": 0.941812136325852,
+    "Voluson S10": 0.9253034547152195
+  },
+  "classification_report": "                 precision    recall  f1-score   support\n\n  Fetal abdomen       0.86      0.97      0.91       358\n    Fetal brain       0.99      0.99      0.99      1472\n    Fetal femur       0.87      0.91      0.89       524\n   Fetal thorax       0.93      0.95      0.94       660\nMaternal cervix       0.99      1.00      1.00       645\n          Other       0.95      0.89      0.91      1612\n\n       accuracy                           0.95      5271\n      macro avg       0.93      0.95      0.94      5271\n   weighted avg       0.95      0.95      0.95      5271\n"
+}

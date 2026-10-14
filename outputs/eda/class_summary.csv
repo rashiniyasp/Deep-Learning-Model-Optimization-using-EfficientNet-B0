@@ -1,0 +1,13 @@
+Plane,split,count
+Fetal abdomen,Test,358
+Fetal abdomen,Train,353
+Fetal brain,Test,1472
+Fetal brain,Train,1620
+Fetal femur,Test,524
+Fetal femur,Train,516
+Fetal thorax,Test,660
+Fetal thorax,Train,1058
+Maternal cervix,Test,645
+Maternal cervix,Train,981
+Other,Test,1612
+Other,Train,2601

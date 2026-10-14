@@ -1,0 +1,11 @@
+% EfficientNet-B0 Deployment Benchmark Tables
+\begin{tabular}{lrrrrrrl}
+\toprule
+Deployment Variant & Mean Latency (ms) & p50 Latency (ms) & p95 Latency (ms) & Throughput (FPS) & Test Accuracy (\%) & Model Size (MB) & Compression \\
+\midrule
+PyTorch FP32 (Baseline) & 21.34 & 21.62 & 22.41 & 46.87 & 94.67 & 46.40 & 1.0x \\
+PyTorch Dynamic INT8 & 22.15 & 22.21 & 23.48 & 45.15 & 94.67 & 15.58 & 3.0x \\
+ONNX FP32 (Graph Fused) & 21.22 & 22.05 & 24.33 & 47.13 & 94.67 & 15.30 & 3.0x \\
+ONNX Dynamic INT8 & 135.84 & 137.17 & 151.59 & 7.36 & 29.67 & 4.14 & 11.2x \\
+\bottomrule
+\end{tabular}
