@@ -1,0 +1,36 @@
+# Raw Dataset (1.95 GB - download from Zenodo: https://zenodo.org/records/3904280)
+FETAL_PLANES_ZENODO/
+Images/
+*.zip
+*.tar.gz
+
+# Model Weights & Large Checkpoints (Distributed via GitHub Releases / Google Drive)
+outputs/**/checkpoints/*.pth
+outputs/**/checkpoints/*.onnx
+outputs/**/features/*.npy
+outputs/**/features/*.npz
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE & Editor artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
